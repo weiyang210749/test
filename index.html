@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title> 浏览器webcamera </title> 
+<meta name="Generator" content="EditPlus"> 
+<meta name="Author" content="renfufei@qq.com"> 
+<meta name="Description" content="inveted by: http://davidwalsh.name/browser-camera"> 
+
+</head> 
+<style><style type="text/css">
+        #fileBtn{width: 100px;height: 100px; position: absolute;display: block;top: 0;left: 0;opacity: 0;} 
+        .fileBtn{width: 100px;height: 100px;border: 2px dashed lightskyblue;text-align: center;position: relative;left: 50px;top: 50px;}
+         .fileBtn p{line-height: 60px;}
+        #img{width: 100px;height: 100px;position: absolute;top: 0;left: 0;z-index: 10;display: none;}
+       .img{width: 100px;height: 100px;}
+         .img-box{margin-top: 80px;}
+    </style>
+<body> 
+ <div class="fileBtn"> 
+      <p>点击添加图片</p>
+    <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera" multiple="multiple"/> 
+      <!--单张图片容器-->
+      <img src="" id="img"/>
+  </div>
+  <!--多张图片容器-->
+ <div class="img-box"> 
+ </div> 
+</body> 
+<script>
+	    function upload(){ 
+     var $c = document.querySelector("#fileBtn");//上传出发按钮
+     var $d = document.querySelector("#img");//图片容器
+     var file = $c.files[0];//获取file对象单张
+     var reader = new FileReader();//创建filereader对象
+         reader.readAsDataURL(file);//转换数据
+         reader.onload = function(e){//加载ok时触发的事件
+             console.log(file);
+         $d.setAttribute("src", e.target.result);//给图片地址,显示缩略图
+         $d.style.display="block";//样式显示
+     };
+ };  
+</script>
+</html>
