@@ -1,0 +1,158 @@
+/* 
+* @Author: liang
+* @Date:   2018-08-07 11:39:28
+* @Last Modified by:   liang
+* @Last Modified time: 2018-08-07 15:21:41
+*/
+*{
+	margin:0;
+	padding: 0;
+	border:0;
+}
+img{border: 0}
+body{
+	background-color: #fe739d;
+}
+.base {
+	width: 16rem;
+	height: 42rem;
+	background-image: url(../image/bg.png);
+	background-size: cover;
+	background-repeat:no-repeat;
+	position: relative;
+}
+li{list-style: none;}
+.all{
+	margin-top: 10rem;
+	position: absolute;
+	
+}
+.title{
+
+	text-align: center;
+
+}
+.title1{
+	margin-bottom: 0.5rem;
+}
+.title img{
+	width: 35%;
+}
+.mark img{
+	width: 90%;
+}
+.button img{
+    width: 47%;
+    margin-top: 0.5rem;
+}
+.text{
+	font-size:0.55rem;
+	color: #450505;
+	/*border: 5px dotted #f65766;*/
+	width: 86%;
+	text-align: left;
+	margin:0 auto;
+	padding: 3%;
+	background-color: rgba(252,235,220,0.5);
+	margin-top: 0.6rem;
+}
+.text h3{
+	text-align: center;
+}
+.title2{
+	margin-top: 0.8rem;
+}
+.lp_list {
+   margin:0 auto;
+    position: relative;
+    width: 80%;
+    height: 22rem;
+    padding: 6%;
+    background: linear-gradient(#f38b82, #fce7c0); /* 标准的语法 */ 
+    margin-bottom: 1rem;
+}
+.lp_list li {
+    width: 100%;
+    position: relative;
+    line-height: 0.5rem;
+    float: left;
+    margin-bottom: 0.7rem;
+
+
+}
+.lp_list li span img {
+    width: 100%;
+}
+
+.lp_list li p {
+    font-size: 0.6rem;
+    line-height: 1rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0rem;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: #f65766;
+    display: block;
+    width: 100%;
+   font-family: '本墨金黑'
+}
+.share-button{
+	position: absolute;
+	top:5px;
+	right: 0;
+}
+.share-button img{
+	width: 80%;
+}
+.shareModule {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+.shareModule .shareMain {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 0 10px;
+}
+.shareMain .shareTtitle {
+    padding: 15px 0 5px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+.shareMain .shareSelect li {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.shareMain .shareSelect li img {
+    width: 100%;
+    float: left;
+}
+.shareMain .shareSelect li p {
+    font-size: 13px;
+    color: #333;
+    text-align: center;
+    padding: 5px 0 10px 0;
+    margin: 0;
+    width: 100%;
+    float: left;
+}
+.shareMain .cancelShare {
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+    color: #333;
+    border-top: 1px dotted #c8c8c8;
+}
