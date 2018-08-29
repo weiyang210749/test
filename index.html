@@ -7,8 +7,83 @@
         <meta name="description" itemprop="description" content="签到就能送话费，10元免费送给你，数量有限，快来领取！">
         <meta name="keywords" content="湖北移动，咪咕视频">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-	 <script type="text/javascript" src="https://m.miguvideo.com/wap/resource/migu/script/plugins/weixinSecondShare.js"></script>
+	
     <!--百度统计-->
+	    <script>
+	(function($, window, document) {
+  $.extend({
+    "getUrlParam": function(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return decodeURI(r[2]);
+      return null
+    },
+    "isEmptyObject": function(obj) {
+      for (var n in obj) {
+        return false
+      }
+      return true
+    },
+    "is_weixn": function(){
+      var ua = navigator.userAgent.toLowerCase();if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    "weixinSecondShare": function(title, desc, imgSrc) {
+      if(!imgSrc){          imgSrc = '/wap/resource/mh/hd/ht/img/shareLogo.png';
+      }
+
+      var signUrl = location.href.split('#')[0];
+      $.ajax({
+        //url: "/getWechatAccessToken.msp?site=2&weiboType=WEIXIN&url="+signUrl,
+        url: "/getWechatAccessToken.msp",
+        dataType: "json",
+        type: "POST",
+        data: {
+          site: "2",
+          weiboType: "WEIXIN",
+          url: signUrl
+        },
+        success: function(data) {
+          wx.config({
+            debug: false,
+            appId: 'wx87370e05e9d51a3c',
+            timestamp: data.timestamp,
+            nonceStr: data.noncestr,
+            signature: data.signature,
+            jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+          });
+          wx.ready(function() {
+            wx.onMenuShareAppMessage({
+              title: title,
+              desc: desc,
+              link: signUrl,
+              imgUrl: location.origin + imgSrc,
+              trigger: function(res) {},
+              success: function(res) {},
+              cancel: function(res) {},
+              fail: function(res) {}
+            });
+            wx.onMenuShareTimeline({
+              title: title,
+              link: signUrl,
+              imgUrl: location.origin + imgSrc,
+              trigger: function(res) {},
+              success: function(res) {},
+              cancel: function(res) {},
+              fail: function(res) {
+                alert(JSON.stringify(res))
+              }
+            })
+          })
+        }
+      })
+    }
+  })
+})(jQuery, window, document);
+	    </script>
 <script>
 var _hmt = _hmt || [];
 (function() {
